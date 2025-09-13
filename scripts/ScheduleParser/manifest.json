@@ -1,7 +1,6 @@
 {
-    "namespace": "ScheduleParser",
-    "files": [
-        "Parser.js",
-        "CalendarParse.js"
-    ]
+    "namespace": "Calendar",
+    "dependencies": [],
+    "modules": [ "Parser.js", "getListView.js"],
+    "entrypoint": "main.js"
 }
