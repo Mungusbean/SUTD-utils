@@ -4,6 +4,14 @@ Modules.Calendar.parseScheduleTable = function(table) {
         return null;
     }
 
+    function alignStartDateToDay(startDate, byDay) { // Ty GPT again
+        const dayIndexMap = { SU:0, MO:1, TU:2, WE:3, TH:4, FR:5, SA:6 };
+        const target = dayIndexMap[byDay];
+        const current = startDate.getUTCDay();
+        startDate.setDate(startDate.getDate() + (target - current + 7)%7);
+        return startDate;
+    }
+
     const classname_numcells = 1;
     const classtimes_numcells = 7;
 
@@ -52,7 +60,7 @@ Modules.Calendar.parseScheduleTable = function(table) {
             let endMonth = dateMatch[5].padStart(2, "0");
             let endYear = dateMatch[6];
 
-            let startDate = new Date(`${startYear}-${startMonth}-${startDay}T00:00:00`);
+            let startDate = alignStartDateToDay(new Date(`${startYear}-${startMonth}-${startDay}T00:00:00`), byDay);
             let endDate = new Date(`${endYear}-${endMonth}-${endDay}T00:00:00`);
             endDate.setHours(23, 59, 59, 0);
 
