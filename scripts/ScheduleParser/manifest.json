@@ -1,0 +1,7 @@
+{
+    "namespace": "ScheduleParser",
+    "files": [
+        "Parser.js",
+        "CalendarParse.js"
+    ]
+}
