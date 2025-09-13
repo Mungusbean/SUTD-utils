@@ -3,7 +3,7 @@ Modules.Calendar.main = async function () {
     console.log("%c[Main]%c Starting calendar extraction…",
       "color:green;font-weight:bold;", "color:white;");
 
-    // get the schedule table (Promise-based)
+    // get the schedule table (Promise-based) Thanks GPT
     let table = await Modules.Calendar.getListView();
     if (!table) {
       console.error("%c[Main]%c No schedule table found", "color:red;font-weight:bold;", "color:white;");

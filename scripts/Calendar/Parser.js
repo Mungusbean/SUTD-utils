@@ -72,6 +72,7 @@ Modules.Calendar.parseScheduleTable = function(table) {
             let dtEnd = formatDateTime(startDate, endTimeStr);
             let until = endDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 
+            // Thanks GPT
             let event = [
                 "BEGIN:VEVENT",
                 `UID:${curr_classname}-${dtStart}@customcalendar`,
@@ -96,6 +97,6 @@ Modules.Calendar.parseScheduleTable = function(table) {
         "END:VCALENDAR"
     ].join("\n");
 
-    console.log("📅 ICS Output:\n", icsFile);
+    console.log("ICS Output:\n", icsFile);
     return icsFile;
 };

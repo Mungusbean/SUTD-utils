@@ -1,4 +1,4 @@
-Modules.Calendar.getListViews = function () {
+Modules.Calendar.getListView = function () {
   return new Promise((resolve, reject) => {
     try {
       let tries = 0;
@@ -41,7 +41,7 @@ Modules.Calendar.getListViews = function () {
             sched_listview = newDoc.getElementById("ACE_STDNT_ENRL_SSV2$0");
             if (sched_listview) {
               console.log("%cFound listview element after reload", "color:green;font-weight:bold;");
-              sched_listview.style.outline = "3px solid green";
+              // sched_listview.style.outline = "3px solid green"; //DEBUG
               resolved = true;
               resolve(sched_listview);
             } else {
@@ -56,7 +56,7 @@ Modules.Calendar.getListViews = function () {
             sched_listview = iframe.contentDocument.getElementById("ACE_STDNT_ENRL_SSV2$0");
             if (sched_listview) {
               console.log("%cAlready in listview, found element", "color:green;font-weight:bold;");
-              sched_listview.style.outline = "3px solid orange";
+              // sched_listview.style.outline = "3px solid orange"; //DEBUG
               resolved = true;
               resolve(sched_listview);
             } else {
