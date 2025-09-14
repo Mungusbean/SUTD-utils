@@ -28,7 +28,7 @@ Loader.loadNamespace = function (namespace) {
 
     // Construct manifest URL
     const baseUrl = Loader.baseUrl || ""; // Loader.baseUrl will be set in the bookmarklet by the time this function is called
-    const manifestUrl = `${baseUrl}/${namespace}/manifest.json`;
+    const manifestUrl = `${baseUrl}/${namespace}/manifest.json?v=${Date.now()}`;
 
     let promise = fetch(manifestUrl)
       .then(res => {
@@ -88,7 +88,7 @@ Loader.loadNamespace = function (namespace) {
 Loader.loadScript = function (url) {
     return new Promise((resolve, reject) => {
         let s = document.createElement("script");
-        s.src = url;
+        s.src = url + "?v=" + Date.now();
         s.async = false; // preserve order
         s.onload = () => resolve();
         s.onerror = () => reject(new Error(`Failed to load script: ${url}`));

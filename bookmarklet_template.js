@@ -8,7 +8,7 @@ javascript:(function(){
 
   if (!window.Loader) {
     var s = document.createElement("script");
-    s.src = "https://mungusbean.github.io/SUTD-utils/loader.js";
+    s.src = "https://mungusbean.github.io/SUTD-utils/loader.js?v=" + Date.now();
     s.onload = run;
     document.head.appendChild(s);
   } else {
