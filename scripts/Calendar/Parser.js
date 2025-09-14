@@ -8,7 +8,7 @@ Modules.Calendar.parseScheduleTable = function(table) {
         const dayIndexMap = { SU:0, MO:1, TU:2, WE:3, TH:4, FR:5, SA:6 };
         const target = dayIndexMap[byDay];
         const current = startDate.getUTCDay();
-        startDate.setDate(startDate.getDate() + (target - current + 7)%7);
+        startDate.setDate(startDate.getDate() + (target - current)%7);
         return startDate;
     }
 
